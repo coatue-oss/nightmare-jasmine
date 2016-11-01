@@ -17,7 +17,10 @@ npm install --save-dev nightmare-jasmine
 ```ts
 import { Context as BaseContext, run } from 'nightmare-jasmine'
 
-run('https://localhost:4000', {
+run({
+  params: {
+    username: 'foo'
+  },
   specFiles: [
     './hooks/beforeAll.js',
     './hooks/beforeEach.js',
@@ -29,7 +32,7 @@ run('https://localhost:4000', {
 ## API
 
 ```ts
-run(baseURL: string, options: Options)
+run(options: Options)
   .then(() => console.log('Success!'))
   .catch(e => console.error('Error!', e))
 ```
@@ -38,6 +41,7 @@ run(baseURL: string, options: Options)
 
 | Name                | Type        | Required? | Description                        |
 |---------------------|-------------|-----------|------------------------------------|
+| `baseDir`           | `string`    | No        | Directory that spec files should be resolved relative to |
 | `isDebug`           | `boolean`   | No        | Show browser?                      |
 | `params`            | `Object`    | No        | Additional params to pass to tests |
 | `specFiles`         | `string[]`  | Yes       | Glob array of spec files           |

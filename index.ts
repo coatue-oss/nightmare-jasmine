@@ -1,27 +1,29 @@
 import * as Nightmare from 'nightmare'
 const objectid: { (): string } = require('objectid') // TODO: type
 const Jasmine = require('jasmine')
-const jasmine = new Jasmine()
-
-// support async tests
-require('jasmine-co').install()
 
 export interface Context<T extends Object> {
-  baseURL: string
   params: T
   nightmare: Nightmare
 }
 
 export interface Options<T extends Object> {
+  baseDir?: string
+  baseURL?: string
   isDebug?: boolean
   params?: T
   specFiles: string[]
 }
 
-export async function run<T extends Object>(
-  baseURL: string,
-  options: Options<T>
-) {
+export async function run<T extends Object>(options: Options<T>) {
+
+  // create jasmine instance
+  const jasmine = new Jasmine({
+    projectBaseDir: options.baseDir || '/'
+  })
+
+  // support async tests
+  require('jasmine-co').install()
 
   // create nightmare instance
   const nightmare = createNightmare(objectid(), options)
@@ -34,7 +36,6 @@ export async function run<T extends Object>(
 
   // expose nightmare instance and options to tests
   beforeAll(async function(this: Context<T>) {
-    this.baseURL = baseURL || ''
     this.nightmare = nightmare
     this.params = options.params || {} as T
   })

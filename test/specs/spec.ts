@@ -3,10 +3,6 @@ import { Context } from '../test'
 
 describe('nightmare-jasmine', () => {
 
-  it('should have access to the baseURL', function(this: Context) {
-    expect(this.baseURL).toBe(`http://127.0.0.1:${this.params.port}`)
-  })
-
   it('should have access to params', function(this: Context) {
     expect(this.params.credentials.username).toBe('foo')
     expect(this.params.credentials.password).toBe('bar')

@@ -3,6 +3,7 @@ import { Context as BaseContext, run } from '../'
 const getPort: {(): Promise<number>} = require('get-port')
 
 export type Context = BaseContext<{
+  baseURL: string
   credentials: {
     username: string
     password: string
@@ -27,15 +28,16 @@ getPort().then(port => {
     `)
     res.end()
   }).listen(port, () =>
-    run(`http://127.0.0.1:${port}`, {
+    run({
+      isDebug: true,
       params: {
+        baseURL: `http://127.0.0.1:${port}`,
         credentials: {
           username: 'foo',
           password: 'bar'
         },
         port
       },
-      isDebug: true,
       specFiles: [
         './test/hooks/beforeEach.js',
         './test/specs/spec.js'

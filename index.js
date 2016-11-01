@@ -10,11 +10,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 const Nightmare = require('nightmare');
 const objectid = require('objectid'); // TODO: type
 const Jasmine = require('jasmine');
-const jasmine = new Jasmine();
-// support async tests
-require('jasmine-co').install();
-function run(baseURL, options) {
+function run(options) {
     return __awaiter(this, void 0, void 0, function* () {
+        // create jasmine instance
+        const jasmine = new Jasmine({
+            projectBaseDir: options.baseDir || '/'
+        });
+        // support async tests
+        require('jasmine-co').install();
         // create nightmare instance
         const nightmare = createNightmare(objectid(), options);
         // configure jasmine
@@ -25,7 +28,6 @@ function run(baseURL, options) {
         // expose nightmare instance and options to tests
         beforeAll(function () {
             return __awaiter(this, void 0, void 0, function* () {
-                this.baseURL = baseURL || '';
                 this.nightmare = nightmare;
                 this.params = options.params || {};
             });
