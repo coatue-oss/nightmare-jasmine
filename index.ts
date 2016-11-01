@@ -60,7 +60,8 @@ function createNightmare<T>(partitionId: string, options: Options<T>): Nightmare
   return new (Nightmare as any)({
     show: options.isDebug,
     switches: {
-      'disable-renderer-backgrounding': true
+      'disable-renderer-backgrounding': true,
+      'ignore-certificate-errors': true
     },
     typeInterval: 20,
     webPreferences: {
