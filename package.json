@@ -1,0 +1,30 @@
+{
+  "name": "nightmare-jasmine",
+  "version": "0.0.1",
+  "description": "Jasmine wrapper for Nightmare",
+  "main": "./index.js",
+  "scripts": {
+    "build": "tsc",
+    "lint": "tslint *.ts",
+    "prepublish": "npm run lint && npm run build && npm test",
+    "test": "npm run build && node ./test/test.js",
+    "watch": "tsc -w"
+  },
+  "author": "Boris Cherny <boris@performancejs.com>",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "get-port": "^2.1.0",
+    "tslint": "^3.15.1",
+    "typescript": "^2.0.3"
+  },
+  "dependencies": {
+    "@types/jasmine": "^2.5.36",
+    "@types/nightmare": "^1.6.29",
+    "@types/node": "^6.0.46",
+    "jasmine": "^2.5.2",
+    "jasmine-co": "^1.2.1",
+    "jasmine-spec-reporter": "^2.7.0",
+    "nightmare": "^2.8.1",
+    "objectid": "^3.2.1"
+  }
+}
