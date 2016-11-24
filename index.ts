@@ -13,6 +13,7 @@ export interface Options<T extends Object> {
   isDebug?: boolean
   params?: T
   specFiles: string[]
+  waitTimeout?: number
 }
 
 export async function run<T extends Object>(options: Options<T>) {
@@ -66,7 +67,8 @@ function createNightmare<T>(partitionId: string, options: Options<T>): Nightmare
     typeInterval: 20,
     webPreferences: {
       partition: partitionId
-    }
+    },
+    waitTimeout: options.waitTimeout || 10000
   })
 
   // set header for logging
