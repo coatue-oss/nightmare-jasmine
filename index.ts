@@ -1,6 +1,7 @@
 import * as Nightmare from 'nightmare'
 const objectid: { (): string } = require('objectid') // TODO: type
 const Jasmine = require('jasmine')
+const SpecReporter = require('jasmine-spec-reporter')
 
 export interface Context<T extends Object> {
   params: T
@@ -22,6 +23,10 @@ export async function run<T extends Object>(options: Options<T>) {
   const jasmine = new Jasmine({
     projectBaseDir: options.baseDir || '/'
   })
+
+  // create spec reporter
+  jasmine.env.clearReporters()
+  jasmine.addReporter(new SpecReporter())
 
   // support async tests
   require('jasmine-co').install()

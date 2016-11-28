@@ -1,6 +1,6 @@
 {
   "name": "nightmare-jasmine",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Jasmine wrapper for Nightmare",
   "main": "./index.js",
   "scripts": {
