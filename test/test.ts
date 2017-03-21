@@ -1,4 +1,5 @@
 import { createServer } from 'http'
+import { resolve } from 'path'
 import { Context as BaseContext, run } from '../'
 const getPort: {(): Promise<number>} = require('get-port')
 
@@ -10,6 +11,12 @@ export type Context = BaseContext<{
   }
   port: number
 }>
+
+const specFiles = [
+  './hooks/beforeEach.js',
+  './specs/spec.js'
+]
+.map(_ => resolve(__dirname, _))
 
 getPort().then(port => {
 
@@ -38,12 +45,10 @@ getPort().then(port => {
         },
         port
       },
-      specFiles: [
-        './test/hooks/beforeEach.js',
-        './test/specs/spec.js'
-      ]
+      specFiles
     })
-    .catch(() => {})
+    .catch(e => { throw e })
     .then(() => server.close())
   )
 })
+.catch(e => { throw e })

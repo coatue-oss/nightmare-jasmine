@@ -1,8 +1,8 @@
-# nightmare-jasmine [![Build Status][build]](https://circleci.com/gh/coatue/nightmare-jasmine) [![npm]](https://www.npmjs.com/package/nightmare-jasmine) [![apache2]](https://opensource.org/licenses/Apache-2.0)
+# nightmare-jasmine [![Build Status][build]](https://circleci.com/gh/coatue-oss/nightmare-jasmine) [![npm]](https://www.npmjs.com/package/nightmare-jasmine) [![apache2]](https://opensource.org/licenses/Apache-2.0)
 
 > [Jasmine](https://github.com/jasmine/jasmine) wrapper for [Nightmare](https://github.com/segmentio/nightmare)
 
-[build]: https://img.shields.io/circleci/project/coatue/nightmare-jasmine.svg?branch=master&style=flat-square
+[build]: https://img.shields.io/circleci/project/coatue-oss/nightmare-jasmine.svg?branch=master&style=flat-square
 [npm]: https://img.shields.io/npm/v/nightmare-jasmine.svg?style=flat-square
 [apache2]: https://img.shields.io/npm/l/nightmare-jasmine.svg?style=flat-square
 

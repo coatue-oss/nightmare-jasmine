@@ -13,7 +13,7 @@ describe('nightmare-jasmine', () => {
   })
 
   it('should support async tests', async function(this: Context) {
-    const bodies = await this.nightmare.evaluate(() => document.querySelectorAll('body').length)
+    const bodies = await this.nightmare.evaluate(() => document.querySelectorAll('body').length) as any
     expect(bodies).toBe(1)
   })
 

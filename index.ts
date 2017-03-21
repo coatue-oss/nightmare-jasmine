@@ -1,14 +1,14 @@
 import * as Nightmare from 'nightmare'
 const objectid: { (): string } = require('objectid') // TODO: type
 const Jasmine = require('jasmine')
-const SpecReporter = require('jasmine-spec-reporter')
+import { SpecReporter } from 'jasmine-spec-reporter'
 
-export interface Context<T extends Object> {
+export interface Context<T extends object> {
   params: T
   nightmare: Nightmare
 }
 
-export interface Options<T extends Object> {
+export interface Options<T extends object> {
   baseDir?: string
   baseURL?: string
   isDebug?: boolean
@@ -17,7 +17,7 @@ export interface Options<T extends Object> {
   waitTimeout?: number
 }
 
-export async function run<T extends Object>(options: Options<T>) {
+export async function run<T extends object>(options: Options<T>) {
 
   // create jasmine instance
   const jasmine = new Jasmine({
@@ -60,7 +60,7 @@ export async function run<T extends Object>(options: Options<T>) {
  * Takes an ID that is shared across tests in a suite, so we can,
  * for example, log in once and reuse the login between tests.
  */
-function createNightmare<T>(partitionId: string, options: Options<T>): Nightmare {
+function createNightmare<T extends object>(partitionId: string, options: Options<T>): Nightmare {
 
   // TODO: fix typings in DefinitelyTyped
   return new (Nightmare as any)({
