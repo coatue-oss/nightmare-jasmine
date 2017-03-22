@@ -1,5 +1,7 @@
 # nightmare-jasmine [![Build Status][build]](https://circleci.com/gh/coatue-oss/nightmare-jasmine) [![npm]](https://www.npmjs.com/package/nightmare-jasmine) [![apache2]](https://opensource.org/licenses/Apache-2.0)
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/coatue-oss/nightmare-jasmine.svg)](https://greenkeeper.io/)
+
 > [Jasmine](https://github.com/jasmine/jasmine) wrapper for [Nightmare](https://github.com/segmentio/nightmare)
 
 [build]: https://img.shields.io/circleci/project/coatue-oss/nightmare-jasmine.svg?branch=master&style=flat-square
