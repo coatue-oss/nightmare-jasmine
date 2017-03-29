@@ -22,7 +22,7 @@
   "homepage": "https://github.com/coatue-oss/nightmare-jasmine#readme",
   "devDependencies": {
     "get-port": "^3.0.0",
-    "tslint": "^4.5.1",
+    "tslint": "^5.0.0",
     "typescript": "^2.2.1"
   },
   "dependencies": {
